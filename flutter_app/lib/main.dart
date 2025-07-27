@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/result_page.dart';
 import 'predict_page.dart';
 
 void main() {
@@ -17,6 +18,10 @@ class MainApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomePage(),
         '/predict': (context) => PredictPage(),
+        '/result': (context) => ResultPage(
+          prediction: ModalRoute.of(context)?.settings.arguments as String,
+          explanation: null, 
+        ),
       },
     );
   }

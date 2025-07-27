@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_function_declarations_over_variables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/result_page.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -71,7 +72,7 @@ class _PredictPageState extends State<PredictPage> {
 
   Future<void> predict() async {
     setState(() { prediction = null; error = null; explanation = null; });
-    final url = 'http://localhost:8000/predict';
+    final url = 'https://linear-regression-model-bovf.onrender.com/predict';
     try {
       final response = await http.post(
         Uri.parse(url),
@@ -186,25 +187,20 @@ class _PredictPageState extends State<PredictPage> {
                   ),
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
-                      // Use mapped values for API request
                       await predictMapped();
+                      if (prediction != null && explanation != null) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ResultPage(prediction: prediction!, explanation: explanation),
+                          ),
+                        );
+                      }
                     }
                   },
                   child: Text('Predict', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
                 ),
               ),
-              if (prediction != null && explanation != null)
-                Padding(
-                  padding: const EdgeInsets.only(top: 16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('Prediction: $prediction', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                      SizedBox(height: 4),
-                      Text(explanation!, style: TextStyle(fontSize: 14)),
-                    ],
-                  ),
-                ),
               if (error != null)
                 Container(
                   padding: EdgeInsets.all(12),
@@ -220,7 +216,7 @@ class _PredictPageState extends State<PredictPage> {
 
   Future<void> predictMapped() async {
     setState(() { prediction = null; error = null; explanation = null; });
-    final url = 'http://localhost:8000/predict';
+    final url = 'https://linear-regression-model-bovf.onrender.com/predict';
     try {
       // Validate age fields before sending
       final offenderAgeRaw = double.tryParse(offenderAgeController.text);

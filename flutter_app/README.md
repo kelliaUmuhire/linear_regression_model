@@ -5,7 +5,13 @@
 **Problem:** Fatal crimes are rare and hard to predict. This project balances the data and uses advanced models to improve fatality risk prediction.
 
 **Public API Endpoint:**
-https://your-public-api-url.com/predict
+https://linear-regression-model-bovf.onrender.com/predict
+
+**Swagger UI:**
+https://linear-regression-model-bovf.onrender.com/docs
+
+**Note on Render Hosting:**  
+The API is hosted on Render's free tier. If there have been no recent requests, the server may take a moment to start up as it wakes from inactivity.
 
 **Demo Video:**
 [YouTube Demo](https://your-youtube-demo-link)
