@@ -14,7 +14,7 @@ app.add_middleware(
 )
 
 # Load the best model
-model = joblib.load("API/best_crime_model.pkl")
+model = joblib.load("best_crime_model.pkl")
 
 # Define input schema with realistic ranges (adjust as needed)
 class CrimeInput(BaseModel):
