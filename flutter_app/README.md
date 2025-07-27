@@ -14,7 +14,7 @@ https://linear-regression-model-bovf.onrender.com/docs
 The API is hosted on Render's free tier. If there have been no recent requests, the server may take a moment to start up as it wakes from inactivity.
 
 **Demo Video:**
-[YouTube Demo](https://your-youtube-demo-link)
+[YouTube Demo](https://youtu.be/EtzGf0CbIlQ)
 
 **How to Run the Mobile App:**
 1. Clone this repository
